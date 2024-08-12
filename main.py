@@ -1,7 +1,7 @@
 from fpdf import FPDF
 import pandas as pd
 
-#Page layout
+# Page layout
 pdf = FPDF(orientation="P", unit="mm", format="A4")
 
 pdf.set_auto_page_break(auto=False, margin=0)
@@ -22,7 +22,7 @@ for index, row in df.iterrows():
 
     pdf.set_font(family="Times", style="I", size=8)
     pdf.set_text_color(180, 180, 180)
-    pdf.cell(w=0, h=10, txt=row["Topic"], align="R" )
+    pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
 
     # Adds additional pages to each section
     for i in range(row["Pages"] - 1):
@@ -34,7 +34,7 @@ for index, row in df.iterrows():
         pdf.set_font(family="Times", style="I", size=8)
         pdf.set_text_color(180, 180, 180)
         pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
-    #Added pages end
+    # Added pages end
 
-#Creates output file as PDF
+# Creates output file as PDF
 pdf.output("output.pdf")
